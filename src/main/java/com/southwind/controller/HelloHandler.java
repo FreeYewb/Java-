@@ -3,6 +3,7 @@ package com.southwind.controller;
 import javax.websocket.server.PathParam;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,5 +24,9 @@ public class HelloHandler {
 		System.out.println(name);
 		System.out.println(id);
 		return "rest";
+	}
+	@RequestMapping("/cookie")
+	public String cookie(@CookieValue(value="JSESSIONID") String sessionId) {
+		return "cookie";
 	}
 }
