@@ -9,6 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.southwind.entity.User;
+/**
+ * 
+* <p>Title: HelloHandler</p>  
+* <p>Description: </p>  
+* @author yewenbo
+* @date 2019年11月29日
+ */
 @Controller
 @RequestMapping("/hello")
 public class HelloHandler {
@@ -23,10 +31,27 @@ public class HelloHandler {
 	public String rest(@PathVariable("name")String name,@PathVariable("id") int id) {
 		System.out.println(name);
 		System.out.println(id);
-		return "rest";
+		return "index";
 	}
 	@RequestMapping("/cookie")
 	public String cookie(@CookieValue(value="JSESSIONID") String sessionId) {
-		return "cookie";
+		System.out.println(sessionId);
+		return "index";
+	}
+	@RequestMapping(value="/save", method =RequestMethod.POST)
+	public String save(User user) {
+		System.out.println(user);
+		return "index";
+		
+	}
+	//转发
+	@RequestMapping("/forward")
+	public String fowrd() {
+		return "forward:/index.jsp";
+	}
+	//重定向
+	@RequestMapping("redirect")
+	public  String redirect() {
+		return "redirect:/index.jsp";
 	}
 }
