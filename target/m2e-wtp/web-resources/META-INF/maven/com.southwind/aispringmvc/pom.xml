@@ -8,7 +8,8 @@
   <name>aispringmvc Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <properties>
-      <spring.version>4.1.1.RELEASE</spring.version>
+    <!--<spring.version>4.1.1.RELEASE</spring.version>-->
+       <spring.version>5.0.11.RELEASE</spring.version>
   </properties>
   
   <dependencies>
