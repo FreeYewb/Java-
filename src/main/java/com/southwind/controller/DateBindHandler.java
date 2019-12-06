@@ -1,5 +1,6 @@
 package com.southwind.controller;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.xml.ws.RespectBinding;
 
 import org.apache.catalina.tribes.util.Arrays;
@@ -8,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.southwind.entity.User;
+import com.southwind.entity.UserList;
 /**
  * 
 * <p>Title: DateBindHandler</p>  
@@ -37,5 +41,15 @@ public class DateBindHandler {
 	public String array(String[] name) {
 		String str = Arrays.toString(name);
 		return str;
+	}
+	
+	@RequestMapping("/list")
+	public String lits(UserList list,HttpServletResponse response) {
+		response.setContentType("text/json=UTF-8");
+		StringBuffer str = new StringBuffer();
+		for(User user : list.getUsers()) {
+			str.append(user);
+		}
+		return str.toString();
 	}
 }

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/hello")
+@RequestMapping
 public class HelloSpringController {
 String message = "Welcome to Spring MVC!";
 	
