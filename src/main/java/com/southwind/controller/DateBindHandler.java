@@ -5,6 +5,7 @@ import javax.xml.ws.RespectBinding;
 
 import org.apache.catalina.tribes.util.Arrays;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.southwind.entity.User;
 import com.southwind.entity.UserList;
+import com.southwind.entity.UserMap;
 /**
  * 
 * <p>Title: DateBindHandler</p>  
@@ -38,18 +40,35 @@ public class DateBindHandler {
 	}
 	//@ResponseBody
 	@RequestMapping("/array")
-	public String array(String[] name) {
+	public String array(String[] name,Integer[] id) {
 		String str = Arrays.toString(name);
+		str = str+Arrays.toString(id);
 		return str;
 	}
 	
-	@RequestMapping("/list")
-	public String lits(UserList list,HttpServletResponse response) {
-		response.setContentType("text/json=UTF-8");
+	@RequestMapping(value="/list")
+	public String lits(UserList list) {
+		
 		StringBuffer str = new StringBuffer();
 		for(User user : list.getUsers()) {
 			str.append(user);
 		}
 		return str.toString();
+	}
+	@RequestMapping("/map")
+	public String map(UserMap usermap) {
+		StringBuffer str = new StringBuffer();
+		for(String key: usermap.getUsers().keySet()) {
+			User user = usermap.getUsers().get(key);
+			str.append(user);
+		}
+		return str.toString();
+	}
+	
+	@RequestMapping("/json")
+	public User json(@RequestBody User user) {
+		user.setId(22);
+		user.setName("saµÄÈö");
+		return user;
 	}
 }

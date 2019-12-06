@@ -7,9 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="hello/save" method="post">
-		用户名ID：<input type="text" name="name"><br>
-		用户名：<input type="text" name="id"><br>
+	<form action="/data/array" method="post">
+		用户名ID：<input type="text" name="id"><br>
+		用户名：<input type="text" name="name"><br>
 		地址名：<input type="text" name="adress.value"><br>
 		<input type="submit" value="注册">
 	<form/>
