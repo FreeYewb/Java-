@@ -11,7 +11,20 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd
 http://www.springframework.org/schema/mvc
 http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
 	
-		<mvc:annotation-driven>
+	<!-- 配置自定义转换器 -->
+	<bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+    <property name="converters">
+        <list>
+            <bean class="com.southwind.converter.DateConverter">
+                <constructor-arg type="java.lang.String" value="yyyy-MM-dd"></constructor-arg>
+            </bean>
+            <bean class="com.southwind.converter.StudentConverter">
+            	
+            </bean>
+        </list>
+    </property>
+    </bean>
+		<mvc:annotation-driven conversion-service="conversionService">
     	<!-- 消息转换器 -->
    	 		<mvc:message-converters register-defaults="true">
         	<bean class="org.springframework.http.converter.StringHttpMessageConverter">
