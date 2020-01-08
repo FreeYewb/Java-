@@ -1,5 +1,6 @@
 package com.southwind.controller;
 
+
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -48,6 +49,7 @@ public class TagHandler {
 		student.setGradeMap(map);
 		student.setSelectGrade(3);
 		//student2.setSelectHobby();
+
 		modelAndView.addObject("student",student);
 		modelAndView.addObject("student2",student2);
 		return modelAndView;
