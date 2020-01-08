@@ -13,6 +13,7 @@
 		学生ID:<form:input path="id"/>
 		学生姓名:<form:input path="name"/>
 		学生年龄:<form:input path="age"/>
+<<<<<<< HEAD
 		<form:password path="name"/>
 		
 		check<form:checkbox path="flag" value="flag"/><br>
@@ -29,6 +30,14 @@
 		学生年龄:<form:input path="age"/></br>
 		爱好<form:checkboxes path="hobby" items="${student2.selectHobby}"/></br>
 		radiobutton<form:radiobutton path="radioId" value="1"/>radiobutton</br>
+=======
+	<input type="submit" value="提交">
+	</form:form>
+	<form:form modelAttribute="student2">
+		学生ID:<form:input path="id"/>
+		学生姓名:<form:input path="name"/>
+		学生年龄:<form:input path="age"/>
+>>>>>>> branch 'master' of https://github.com/FreeYewb/Java-.git
 	<input type="submit" value="提交">
 	</form:form>
 </body>
